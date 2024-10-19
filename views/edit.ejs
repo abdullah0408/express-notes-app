@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900">
+    <div class="max-w-4xl mx-auto p-10">
+        <div class="flex justify-between items-center mb-6">
+            <a href="/" class="inline-block px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 text-lg font-semibold shadow-md">
+                Home
+            </a>
+            <h1 class="text-2xl text-white font-semibold">Edit Page</h1>
+        </div>
+        <div class="form p-6 bg-zinc-800 rounded-lg text-white w-full">
+            <form action="/edit/<%= fileName %>" method="post">
+                <input id="previousTitle" class="w-full rounded-md hidden outline-none px-5 py-2 bg-zinc-700 mb-4" type="text" placeholder="Previous title" name="previousTitle" required value="<%= fileName %>">
+                <input id="previousTitle" class="block w-full rounded-md outline-none px-5 py-2 bg-zinc-700 mb-4" type="text" placeholder="Previous title" name="newTitle" required value="<%= fileName.replace('-7-98-', ' ').substring(19).slice(0, -4) %>">
+
+                <textarea id="previousdetails" class="hidden w-full rounded-md outline-none px-5 py-2 mt-2 bg-zinc-700 resize-none mb-4" placeholder="Write here..." name="previousdetails" required><%= content %></textarea>
+                <textarea id="previousdetails" class="block w-full rounded-md outline-none px-5 py-2 mt-2 bg-zinc-700 resize-none mb-4" placeholder="Write here..." name="newdetails" required><%= content %></textarea>
+                <input class="mt-4 bg-blue-600 hover:bg-blue-500 px-5 py-2 rounded-md cursor-pointer transition duration-200" type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
